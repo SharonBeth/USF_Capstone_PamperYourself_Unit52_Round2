@@ -33,11 +33,11 @@ function App() {
   const [token, setToken] = useLocalStorage();
   const [videos, setVideos] = useState();
   const [onevideoview, setOneVideoView] = useState();
-  const [dislikeIds, setDislikeIds] = useState(new Set ([]));
+  const [dislikeIds, setDislikeIds] = useState([]);
   const [likesIds, setLikesIds] = useState(new Set ([]));
   const [historyList, setHistoryList] =useState(new Set([]));
   const [filterHistoryList, setFilterHistoryList] = useState([]);
-
+  const [rejectList, setRejectList] = useState('');
   useEffect(() => {
     //This is an attempt to confirm if there is someone already signed in.
     async function getCurrentUser() {
@@ -64,8 +64,18 @@ function App() {
     getCurrentUser();
   }, [token], [dislikeIds])
 
+  useEffect(() => {
+    let test = dislikeIds.map((dislikeId) => (
+      dislikeId.nokeep_id))
+  
+    test = test.join(" -");
+    setRejectList(test)
+    console.log(rejectList, "rejectList in App.js last line")
+  }, [dislikeIds])
 
-
+  useEffect (() => {
+  console.log(rejectList, "reject list")
+  }, [rejectList])
   useEffect(() => {
     console.log(onevideoview, "onevideoview inside useEffect");
   }, [onevideoview]);
@@ -219,7 +229,7 @@ function App() {
                   {/* <Route path="/mainpagein" element={<MainPageIn login={login} register={register} currentUser={currentUser}/>}/> */}
                   <Route path="/signup" element={<SignUpForm register={register} login={login} currentUser={currentUser}/>}/>
                   <Route path="/login" element={<LoginForm login={login} register={register} currentUser={currentUser}/>}/>
-                  <Route path="/newsearch" element={<NewSearch login={login} register={register} currentUser={currentUser} externalAPICall={externalAPICall} videos={videos} dislikeIds={dislikeIds} />}/>
+                  <Route path="/newsearch" element={<NewSearch login={login} register={register} currentUser={currentUser} externalAPICall={externalAPICall} videos={videos} dislikeIds={dislikeIds} rejectList={rejectList} />}/>
                   <Route path="/historyform" element={<HistoryForm login={login} register={register} currentUser={currentUser} externalAPICAl={externalAPICall} videos={videos} video_eval={video_eval} noLikeVideo={noLikeVideo} dislikeLog={dislikeLog} likeButton={likeButton} video_historyPull={video_historyPull} historyList={historyList} filterHistory={filterHistory} filterHistoryList={filterHistoryList}/>}/>
                   <Route path="/historylist" element={<HistoryList login={login} register={register} currentUser={currentUser} externalAPICAl={externalAPICall} videos={videos} video_eval={video_eval} noLikeVideo={noLikeVideo} dislikeLog={dislikeLog} likeButton={likeButton} video_historyPull={video_historyPull} historyList={historyList} filterHistory={filterHistory} filterHistoryList={filterHistoryList}/>}/>
                   <Route path="/carousel" element={<CarouselView login={login} register={register} currentUser={currentUser} externalAPICAl={externalAPICall} videos={videos} video_eval={video_eval} noLikeVideo={noLikeVideo} dislikeLog={dislikeLog} likeButton={likeButton} dislikeIds={dislikeIds}/>}/>

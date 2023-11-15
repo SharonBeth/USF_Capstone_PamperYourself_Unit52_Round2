@@ -15,43 +15,13 @@ import {
 import { render } from "react-dom";
 import YouTubeApi from '../apis/YouTubeApi';
 
-function SearchForm ({externalAPICall, videos, dislikeIds}) {
+function SearchForm ({rejectList, externalAPICall, videos, dislikeIds}) {
   const history = useNavigate();
   const [change, setChange] = useState();
-  const initialState = {category: "", q: "", qExclude : ""};
+  const initialState = {category: "", q: "", qExclude : "", reject: rejectList};
   const [formData, setFormData] = useState(initialState);
   const [formErrors, setFormErrors] = useState([]);
-  // const [videos, setVideos] = useState();
-
-  // async function callForVideos(endpoint, data, method){
-  //   let res = await YouTubeApi.loadClient();
-    
-  //   console.log(data.category+"data.category")
-  //   let test = await YouTubeApi.execute("", data, );
-  //   console.log("test completed")
-  //   console.log(test.result.items)
-  //   console.log("testing below is one array")
-  //   console.log(test.result.items)
-  //   setVideos(test.result.items);
-  //   console.log(videos)
-  //   return {success: true};
-  // }
-  function idDislikeGroup(qExclude) {
-    let test = dislikeIds.map((dislikeId) => (
-      dislikeId.nokeep_id))
-  
-    test = test.join(" -")
-    console.log(test)
-    
-    let idDislike = ''.concat(qExclude, " -", test)
-    console.log(idDislike);
-    // setFormData(formData=> ({
-    //   ...formData,
-    //   ["qExclude"]: idDislike
-    // }))
-
-    return {...formData, ["qExclude"]: idDislike}
-  } 
+  console.log(rejectList, "rejectList")
   useEffect(() => {
     console.log("testing for dislikeIds", dislikeIds)
   }, [dislikeIds])
@@ -72,7 +42,6 @@ const handleSubmit = async (evt) => {
     console.log(formData)
     // console.log(idDislikeGroup.join(' -'), "idDislikeGroup")
     console.log(formData.qExclude, "formData qExclude")
-    idDislikeGroup(formData.qExclude);
     let call = await externalAPICall(formData);
     console.log(videos)
     console.log("after res")

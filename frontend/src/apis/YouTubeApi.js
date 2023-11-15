@@ -29,7 +29,7 @@ class YouTubeApi{
       console.log("execute")
       console.log("testing")
       console.log(data.category)
-      let qAll = (`${data.category} ${data.q} -${data.qExclude}`)
+      let qAll = (`${data.category} ${data.q} -${data.qExclude} -${data.reject}`)
       console.log(qAll)
         // return gapi.client.youtube.search.list({
         return gapi.client.youtube.search.list({
