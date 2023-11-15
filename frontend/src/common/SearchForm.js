@@ -45,10 +45,12 @@ function SearchForm ({externalAPICall, videos, dislikeIds}) {
     
     let idDislike = ''.concat(qExclude, " -", test)
     console.log(idDislike);
-    setFormData(formData=> ({
-      ...formData,
-      ["qExclude"]: idDislike
-    }))
+    // setFormData(formData=> ({
+    //   ...formData,
+    //   ["qExclude"]: idDislike
+    // }))
+
+    return {...formData, ["qExclude"]: idDislike}
   } 
   useEffect(() => {
     console.log("testing for dislikeIds", dislikeIds)

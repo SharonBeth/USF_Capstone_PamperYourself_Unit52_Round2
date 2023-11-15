@@ -195,7 +195,7 @@ function App() {
       console.log(data, "filterHistory ofdata")
       const res = await DBapi.filterHistoryLinks(data)
       console.log(res, "After DB api, chekcing res.list")
-      setFilterHistoryList(oldFilterList=> [...oldFilterList, res])
+      setFilterHistoryList(res)
       console.log(filterHistoryList, "App.js(frontend)/filterHistory()/const filterHistoryList")
       return {success: true}
     }catch(error){
