@@ -22,14 +22,13 @@ function HistoryList({filterHistoryList, externalAPICall, videos, video_eval, no
         <HistoryCard
         key={uuidv4()}
         source={each.link}
-        videoid={each.supplies}
-        title={each.video_id}
-        noLikeVideo={each.watchit}
-        dislikeLog={each.watchit}
-        likeButton={each.watchit}
+        supplies={each.supplies}
+        watchit={each.watchit}
         currentUser={currentUser}
-        dislikeIds={each.link}
-        link={each.link}
+        time={each.time}
+        notes={each.notes}
+
+
 
         />
   
