@@ -110,7 +110,7 @@ function AddToDatabaseForm2({}) {
                 <Form.Control as="textarea" aria-label="Extra Notes on this Video" value={formData.notes} onChange={handleChange} id="notes" />
                 <InputGroup.Text>Any extra notes on this video</InputGroup.Text>
             </InputGroup>
-            <Button type="submit">Testing</Button>
+            <Button style={{background:"#ed80df"}} type="submit">Testing</Button>
         </Form> 
         </div>
     )

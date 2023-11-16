@@ -69,7 +69,7 @@ function NavBar({currentUser, logout, data}) {
               <NavLink to="/newsearch">Search New Videos</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="/historyform">Previously Viewed Videos</NavLink>
+              <NavLink to="/historyform">Saved Videos</NavLink>
             </NavItem>
             <NavItem>
               <NavLink to="/" onClick={logout}>Logout</NavLink>

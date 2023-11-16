@@ -21,7 +21,8 @@ import { Collapse,
     FormGroup,
     Label,
     Input, 
-    Row 
+    Row, 
+    Col
   } from "reactstrap";
 // import Button from 'react-bootstrap/Button';
 // import Form from 'react-bootstrap/Form';
@@ -73,15 +74,16 @@ function HistoryForm({videos, source, video_eval, videoid, title, noLikeVideo, o
     return(
     <div>
         <div>
-            <Form onSubmit={handleSubmit}>
-            <Row>
-                <legend>
+        <Row>
+                <h1>
                     You already did the hard part of researching, now just look in your saved video list:
-                </legend>
+                    </h1>
             </Row>
-  
-                <FormGroup>
-                    <Label htmlFor="category">What category are you looking for today to beautify yourself?</Label>
+        <Col sm={{size: 8, offset: 2}}>
+            <Form onSubmit={handleSubmit}>
+                <FormGroup row>
+                    <Label sm={6} htmlFor="category">What category are you looking for today to beautify yourself?</Label>
+                    <Col sm={6}>
                     <Input
                         type="select"
                         name="category"
@@ -94,9 +96,11 @@ function HistoryForm({videos, source, video_eval, videoid, title, noLikeVideo, o
                       <option>Nails</option>
                       <option>Skin Care & Make-Up</option>
                     </Input>
+                    </Col>
                 </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="time">How much time do you have today?</Label>
+                <FormGroup row>
+                    <Label sm={6} htmlFor="time">How much time do you have today?</Label>
+                    <Col sm={6}>
                     <Input
                         type="number"
                         name="time"
@@ -105,18 +109,12 @@ function HistoryForm({videos, source, video_eval, videoid, title, noLikeVideo, o
                         value={formData.time}
                     >
                     </Input>
+                    </Col>
                 </FormGroup>
-                <Button>Submit</Button>
+                <br></br>
+                <Button style={{background:"#ed80df"}}>Submit</Button>
             </Form>
-        </div>
-        <div className="HistoryLinkList">
-            {filterHistoryList.map((each) => (
-                <div>
-                    <p></p>
-                    <iframe maxwidth="1000" maxheight="500" src={each.link} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-                </div>
-            ))}
-
+            </Col>
         </div>
     </div>
     )

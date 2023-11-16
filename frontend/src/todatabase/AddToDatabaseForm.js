@@ -17,11 +17,13 @@ import { Collapse,
     CarouselControl, 
     CarouselIndicators, 
     CarouselCaption,
+    Container,
     Form,
     FormGroup,
     Label,
     Input, 
-    Row 
+    Row,
+    Col
   } from "reactstrap";
 // import Button from 'react-bootstrap/Button';
 // import Form from 'react-bootstrap/Form';
@@ -79,41 +81,17 @@ function AddToDatabaseForm({videos, source, video_eval, videoid, title, noLikeVi
 
     return(
         <div>
+            <Col sm={{size: 10}}>
             <Form onSubmit={handleSubmit}>
-            <Row>
-                <legend>
-                    Like it, Hate it, or Not relevant!
-                </legend>
-            </Row>
-                <Row>
                 <FormGroup>
-                
-                
-                    <Input
-                        type="radio"
-                        name="likeorhate"
-                        id="like"
-                        onChange={handleRadio}
-                        value="like"
-                    />
-                    <Label check htmlFor="likeorhate">Like it, Save it in my Playlist for later!</Label>
-                </FormGroup>
-                <FormGroup>
-                    <Input
-                        type="radio"
-                        name="likeorhate"
-                        id="hate"
-                        value="hate"
-                        onChange={handleRadio}
-                    />
-                    <Label check htmlFor="likeorhate">Not for me. Next!!</Label>
-                </FormGroup>
-                </Row>
-
-                <legend>
-                    Did you watch it? 
-                </legend>
+                    <Row sm={{size: 4}}>
+                       <p></p>
+                    </Row>
                 <Row>
+                    <Col sm={{size: 4}}>
+                    <p>Watched it? </p>
+                    </Col>
+                    <Col sm={{size: 3 }}>
                 <FormGroup>
                     <Input
                         type="radio"
@@ -122,9 +100,11 @@ function AddToDatabaseForm({videos, source, video_eval, videoid, title, noLikeVi
                         value="yes-1"
                         onChange={handleRadio}
                     />
-                    <Label check htmlFor="likeorhate">Watched it.</Label>
+                    <Label check htmlFor="likeorhate">Yes.</Label>
                 </FormGroup>
-                <FormGroup>
+                </Col>
+                
+              <Col>
                     <Input
                         type="radio"
                         name="watchit"
@@ -132,11 +112,10 @@ function AddToDatabaseForm({videos, source, video_eval, videoid, title, noLikeVi
                         value="no-1"
                         onChange={handleRadio}
                     />
-                    <Label check htmlFor="likeorhate">Not yet, I'll come back.</Label>
-                </FormGroup>
+                    <Label check htmlFor="likeorhate">Not yet.</Label>
+                </Col>
                 </Row>
-                <FormGroup>
-                    <Label htmlFor="category">Choose the category to save this video in.</Label>
+                    <Label htmlFor="category">Categorize your video.</Label>
                     <Input
                         type="select"
                         name="category"
@@ -149,9 +128,7 @@ function AddToDatabaseForm({videos, source, video_eval, videoid, title, noLikeVi
                       <option>Nails</option>
                       <option>Skin Care & Make-Up</option>
                     </Input>
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="time">If you tried it, how long did it take, in minutes?</Label>
+                    <Label htmlFor="time">How many minutes did it take?</Label>
                     <Input
                         type="number"
                         name="time"
@@ -160,32 +137,30 @@ function AddToDatabaseForm({videos, source, video_eval, videoid, title, noLikeVi
                         value={formData.time}
                     >
                     </Input>
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="supplies">If you tried it, what supplies did you use or would use in the future?</Label>
+                    <Label htmlFor="supplies"></Label>
                     <Input
                         type="text"
                         name="supplies"
                         id="supplies"
                         onChange={handleChange}
                         value={formData.supplies}
+                        placeholder="What supplies did you use?"
                     >
                     </Input>
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="notes">Here is a place for any other notes you might want: at time stamp in the video, comment, or just really liked it.</Label>
+                    <Label htmlFor="notes"></Label>
                     <Input
                         type="text"
                         name="notes"
                         id="notes"
                         onChange={handleChange}
                         value={formData.notes}
+                        placeholder="Any other notes for yourself."
                     >
                     </Input>
-                </FormGroup>
-               
-                <Button>Submit</Button>
+                    </FormGroup>
+                <Button style={{background:"#ed80df"}}>Submit</Button>
             </Form>
+            </Col>
         </div>
     )
 

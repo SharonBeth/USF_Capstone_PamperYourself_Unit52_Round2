@@ -9,7 +9,9 @@ import {
     FormGroup,
     Label,
     Input,
-    Button
+    Button,
+    Col,
+    Row
   } from "reactstrap";
 
 
@@ -41,29 +43,34 @@ function LoginForm({register, login}){
     return(
         <div>
             <h1>Login</h1>
+            <Col sm={{
+                            size: 4,
+                            offset: 4
+                        }}>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Label htmlFor="username">Username</Label>
+                    <Label htmlFor="username"></Label>
                     <Input
                         type="text"
                         name="username"
                         id="username"
                         onChange={handleChange}
                         value={formData.username}
+                        placeholder="Username"
                     />
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="password">Password</Label>
+                    <Label htmlFor="password"></Label>
                     <Input
-                        type="text"
+                        type="password"
                         name="password"
                         id="password"
                         onChange={handleChange}
                         value={formData.password}
+                        placeholder="Password"
                     />
                 </FormGroup>
-                <Button>Login</Button>
+                <Button style={{background:"#ed80df"}}>Login</Button>
             </Form>
+            </Col>
         </div>
     )
 }

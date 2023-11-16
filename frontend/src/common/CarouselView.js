@@ -4,18 +4,29 @@ import VideoCard from '../search/VideoCard';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import {
+  Card,
+  CardBody,
+  CardTitle,
+  CardText,
+  Container,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Button,
+  Col,
+  Row
+} from "reactstrap";
 
 
-
-function CarouselView2({externalAPICall, videos, video_eval, noLikeVideo, dislikeLog, likeButton, currentUser, dislikeIds}) {
+function CarouselView2({externalAPICall, videos, video_eval, noLikeVideo, dislikeLog, likeButton, currentUser, dislikeIds, title}) {
   
   console.log("CarouselViewComponent", typeof(videos))
   return(
   <div>
     <div>
-      <p>Pamper YourselfTitle: CarouselView</p> 
-    </div>
-    <div>
+      <Container >
       <Slider>
       {videos.map((video) => (
         <VideoCard
@@ -33,6 +44,7 @@ function CarouselView2({externalAPICall, videos, video_eval, noLikeVideo, dislik
         />
       ))}
       </Slider>
+      </Container>
     </div>
   </div>
   )

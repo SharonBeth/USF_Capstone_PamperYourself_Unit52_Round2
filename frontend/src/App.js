@@ -1,5 +1,4 @@
-
-import mainvanity from './mainvanity.jpg';
+import Capstone_background_image from './Capstone_background_image.jpeg';
 import './App.css';
 import YouTubeApi from './apis/YouTubeApi.js';
 import DBapi from './apis/dbapi.js';
@@ -7,7 +6,6 @@ import NavBar from './nav/NavBar';
 import SignUpForm from  './auth/SignUpForm.js';
 import LoginForm from './auth/LoginForm.js';
 import MainPageOut from './home/MainPageOut.js';
-import MainPageIn from './home/MainPageIn.js';
 import NewSearch from './search/NewSearch.js';
 import HistoryList from './search/HistoryList';
 import CarouselView from './common/CarouselView.js';
@@ -221,12 +219,11 @@ function App() {
             <Card inverse>
               <CardImg
                 alt="Card Image Cap"
-                src={mainvanity}>
+                src={Capstone_background_image}>
               </CardImg>
               <CardImgOverlay>
                 <Routes>
                   <Route path="/" element={<MainPageOut login={login} register={register} currentUser={currentUser}/>}/>
-                  {/* <Route path="/mainpagein" element={<MainPageIn login={login} register={register} currentUser={currentUser}/>}/> */}
                   <Route path="/signup" element={<SignUpForm register={register} login={login} currentUser={currentUser}/>}/>
                   <Route path="/login" element={<LoginForm login={login} register={register} currentUser={currentUser}/>}/>
                   <Route path="/newsearch" element={<NewSearch login={login} register={register} currentUser={currentUser} externalAPICall={externalAPICall} videos={videos} dislikeIds={dislikeIds} rejectList={rejectList} />}/>

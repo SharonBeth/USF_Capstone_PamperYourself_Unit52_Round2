@@ -107,7 +107,7 @@ const handleSubmit = async (evt) => {
                         placeholder="example@gmail.com"
                     />
                 </FormGroup>
-                <Button>Sign Up</Button>
+                <Button style={{background:"#ed80df"}}>Sign Up</Button>
             </Form>
         </div>
     )

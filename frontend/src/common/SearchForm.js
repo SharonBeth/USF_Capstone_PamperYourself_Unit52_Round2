@@ -10,7 +10,8 @@ import {
   Label,
   Input,
   Button,
-  Row
+  Row,
+  Col
 } from "reactstrap";
 import { render } from "react-dom";
 import YouTubeApi from '../apis/YouTubeApi';
@@ -56,6 +57,10 @@ const handleSubmit = async (evt) => {
 console.log(dislikeIds)
   return(
     <div>
+       <Col sm={{
+                            size: 6,
+                            offset: 3
+                        }}>
       <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="category">Choose a Category from the Drop Down Menu</Label>
@@ -71,8 +76,6 @@ console.log(dislikeIds)
                       <option>Nails</option>
                       <option>Skin Care</option>
                     </Input>
-                </FormGroup>
-                <FormGroup>
                     <Label htmlFor="q">Include the following for searching</Label>
                     <Input
                         type="text"
@@ -82,9 +85,6 @@ console.log(dislikeIds)
                         value={formData.q}
                         placeholder="Suggestions...Braids, Press-On Nails, smokey-eye make-up"
                     />
-                    
-                </FormGroup>
-                <FormGroup>
                     <Label htmlFor="qExclude">This will exclude things from our search.</Label>
                     <Input
                         type="text"
@@ -95,8 +95,9 @@ console.log(dislikeIds)
                         placeholder="This one is okay to leave blank"
                     />
                 </FormGroup>
-                <Button>Pampering Yourself Begins Here</Button>
+                <Button style={{background:"#ed80df"}}>Pampering Yourself Begins Here</Button>
             </Form>
+            </Col>
     </div>
   )
 

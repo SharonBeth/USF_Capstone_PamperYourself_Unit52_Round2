@@ -1,38 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { Collapse,
-//   Navbar,
-//   NavbarToggler,
-//   NavbarBrand,
-//   Nav,
-//   NavItem,
-//   UncontrolledDropdown,
-//   DropdownToggle,
-//   DropdownMenu,
-//   DropdownItem,
-//   NavbarText, 
-//   Button,
-//   Card,
-//   CardBody,
-//   CardTitle,
-//   ListGroup,
-//   ListGroupItem, 
-//   Carousel, 
-//   CarouselItem, 
-//   CarouselControl, 
-//   CarouselIndicators, 
-//   CarouselCaption   
-// } from "reactstrap";
-import Card from 'react-bootstrap/Card';
-import Carousel from 'react-bootstrap/Carousel';
-import CarouselItem from 'react-bootstrap/CarouselItem';
-import CarouselCaption from 'react-bootstrap/CarouselCaption';
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import { Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText, 
+  Button,
+  Card,
+  CardBody,
+  Container,
+  CardTitle,
+  ListGroup,
+  ListGroupItem, 
+  Carousel, 
+  CarouselItem, 
+  CarouselControl, 
+  CarouselIndicators, 
+  CarouselCaption,
+  Row,
+  Col  
+} from "reactstrap";
+// import Card from 'react-bootstrap/Card';
+// import Carousel from 'react-bootstrap/Carousel';
+// import CarouselItem from 'react-bootstrap/CarouselItem';
+// import CarouselCaption from 'react-bootstrap/CarouselCaption';
+// import Container from 'react-bootstrap/Container';
+// import Col from 'react-bootstrap/Col';
+// import Row from 'react-bootstrap/Row';
 import { render } from "react-dom";
 import AddToDatabaseForm from "../todatabase/AddToDatabaseForm";
 import DBapi from '../apis/dbapi.js';
+import './Video.css';
 
 
 function VideoCard({videos, category, source, video_eval, videoid, title, noLikeVideo, dislikeLog, likeButton, currentUser}){
@@ -62,6 +66,7 @@ function VideoCard({videos, category, source, video_eval, videoid, title, noLike
     if(dislike.success){
       console.log("noLikeVideo logging dislike table Complete")
     }
+    history('/newsearch')
   }
   useEffect(() => {
     console.log(onevideoinfo);
@@ -69,15 +74,20 @@ function VideoCard({videos, category, source, video_eval, videoid, title, noLike
 
   return (
       <div>
-        <Container fluid="true">
-          <p>Testing VideoCard</p>
-            <iframe src={source} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+        <Container fluid="true" >
+          <Col sm={{size: 10, offset: 1}}>
+          <p>Video Title: {title}</p>
+            <iframe className="carouselvideo" src={source} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
             <br></br>
-            <br></br>
-            <button onClick={like}>Like it: Add it</button>
-            <br></br>
-            <br></br>
-            <button onClick={noLike}>Not for me</button>
+            <Row>
+            <Col sm={{size: 3, offset: 2}}>
+            <Button style={{background:"#ed80df"}} onClick={like}>Add it</Button>
+            </Col>
+            <Col sm={{size: 3, offset: 2}}>
+            <Button style={{background:"#ed80df"}} onClick={noLike}>Toss it</Button>
+            </Col>
+            </Row>
+          </Col>
         </Container>
         <br></br>
       </div>

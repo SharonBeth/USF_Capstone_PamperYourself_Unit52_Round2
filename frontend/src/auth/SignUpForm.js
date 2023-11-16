@@ -9,7 +9,9 @@ import {
     FormGroup,
     Label,
     Input,
-    Button
+    Button,
+    Col,
+    Row 
   } from "reactstrap";
 
 
@@ -40,49 +42,52 @@ function SignUpForm({register}){
     return (
         <div>
             <h1>Sign Up to Pamper Yourself</h1>
+            <Col sm={{
+                            size: 4,
+                            offset: 4
+                        }}>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Label htmlFor="username">Username</Label>
+                    <Label htmlFor="username"></Label>
                     <Input
                         type="text"
                         name="username"
                         id="username"
                         onChange={handleChange}
                         value={formData.username}
+                        placeholder="Username"
                     />
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="password">Password</Label>
+               
+              
+                    <Label htmlFor="password"></Label>
                     <Input
-                        type="text"
+                        type="password"
                         name="password"
                         id="password"
                         onChange={handleChange}
                         value={formData.password}
+                        placeholder="Password"
                     />
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="firstName">First Name</Label>
+                
+                    <Label htmlFor="firstName"></Label>
                     <Input
                         type="text"
                         name="firstName"
                         id="firstName"
                         onChange={handleChange}
                         value={formData.firstName}
+                        placeholder="First Name"
                     />
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="lastName">Last Name</Label>
+                    <Label htmlFor="lastName"></Label>
                     <Input
                         type="text"
                         name="lastName"
                         id="lastName"
                         onChange={handleChange}
                         value={formData.lastName}
+                        placeholder="Last Name"
                     />
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="email">E-mail</Label>
+                    <Label htmlFor="email"></Label>
                     <Input
                         type="email"
                         name="email"
@@ -91,9 +96,10 @@ function SignUpForm({register}){
                         value={formData.email}
                         placeholder="example@gmail.com"
                     />
-                </FormGroup>
-                <Button>Sign Up</Button>
+                    </FormGroup>
+                <Button style={{background:"#ed80df"}}>Sign Up</Button>
             </Form>
+            </Col>
         </div>
     )
 }
