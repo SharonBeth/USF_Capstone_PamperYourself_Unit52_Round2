@@ -1,56 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText, 
-  Button,
+import React from "react";
+import {
   Card,
-  CardBody,
-  CardTitle,
   ListGroup,
   ListGroupItem, 
-  Carousel, 
-  CarouselItem, 
-  CarouselControl, 
-  CarouselIndicators, 
-  CarouselCaption,
-  Container,
   Row,
   Col,
-  CardText
+  CardHeader
 } from "reactstrap";
-import { render } from "react-dom";
 
-function HistoryCard({source, supplies, watchit, time, notes, title, currentUser}){
+function HistoryCard({source, supplies, notes}){
   return(
           <div>
-            <Container >
-              <Col sm={{
-                            size: 10,
-                            offset: 1
-                        }}>
-              <iframe className="historycard" src={source} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-              <br></br>
-              </Col>
-            </Container>
             <Row>
-              <Col sm={{
-                            size: 10,
-                            offset: 1
-                        }}>
-                <Card color="secodary" body>
-                  <Button style={{background:"#ed80df"}}>
-                    <CardText>Supplies Needed: {supplies}</CardText>
-                    <CardText>Extra Notes:     {notes}</CardText>
-                  </Button>
+              <Col sm={{size: 4, offset: 1}}>
+                <iframe className="historycard" src={source} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+              </Col>
+              <Col className="verticalcenter" fluid="true" sm={{size: 4, offset: 2}}>
+                <Card color="info" body>
+                  <CardHeader >Your Saved Video Notes:</CardHeader>
+                  <ListGroup flush>
+                    <ListGroupItem id="noshadow1">Supplies Needed: {supplies}</ListGroupItem>
+                    <ListGroupItem id="noshadow2">Extra Notes: {notes}</ListGroupItem>
+                  </ListGroup>
                 </Card>
               </Col>
             </Row>

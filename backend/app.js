@@ -2,15 +2,12 @@
 
 const express = require("express");
 const cors = require("cors");
-
 const { NotFoundError } = require("./expressError");
-
 const { authenticateJWT } = require("./middleware/auth");
 const authRoutes = require("./routes/auth");
 const videos = require("./routes/videos");
 const usersRoutes = require("./routes/users");
 const morgan = require("morgan");
-
 const app = express();
 
 // generalized routes

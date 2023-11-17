@@ -1,23 +1,17 @@
 import React, {useState} from "react";
-import {Redirect, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {
-    Card,
-    CardBody,
-    CardTitle,
-    CardText,
     Form,
     FormGroup,
     Label,
     Input,
     Button,
-    Col,
-    Row
-  } from "reactstrap";
+    Col
+} from "reactstrap";
 
 
 function LoginForm({register, login}){
     const history = useNavigate();
-    const[someValue, setSomeValue] = useState();
     const initialState= {username: "", password: ""}
     const[formData, setFormData] = useState(initialState);
     const[formErrors, setFormErrors] = useState();
@@ -43,10 +37,7 @@ function LoginForm({register, login}){
     return(
         <div>
             <h1>Login</h1>
-            <Col sm={{
-                            size: 4,
-                            offset: 4
-                        }}>
+            <Col sm={{size: 4, offset: 4}}>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="username"></Label>

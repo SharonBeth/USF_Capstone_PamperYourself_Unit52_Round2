@@ -13,8 +13,15 @@
     height: 325px;
     width: 675px;
 }
-
 .historycard{
+    align-items: center;
     height: 300px;
-    width: 240px;
+    width: 400px;
+}
+.verticalcenter{
+    display: flex;
+    align-items: center;
+}
+#noshadow1, #noshadow2, #noshadow3, #noshadow4, #noshadow5, #noshadow6, #noshadow7, #noshadow8 {
+    text-shadow: none;
 }

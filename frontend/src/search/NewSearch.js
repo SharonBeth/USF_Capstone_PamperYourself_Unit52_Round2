@@ -1,18 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  CardText,
-  ListGroup,
-  ListGroupItem, Button
-} from "reactstrap";
-import { render } from "react-dom";
+import React, { useState } from "react";
 import SearchForm from "../common/SearchForm";
 
 function NewSearch({externalAPICall, dislikeIds}) {
-    const [change, setChange] = useState();
     
     return(
         <div>

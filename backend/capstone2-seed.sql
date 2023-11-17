@@ -22,21 +22,3 @@ VALUES  ('-uc-PvM2cVs',
         ('m95Bkh7L4Uc',
         'MY DAUGHTERS SKiNCARE MORNiNG ROUTiNE💄🫧',
         'https://www.youtube.com/embed/m95Bkh7L4Uc');
-
-
--- May use this later for now it is set up incase.
--- INSERT INTO evaluation (eval_id, watchit, category, time, supplies, notes)
--- VALUES  ('',
---         '',
---         '',
---         '',
---         '',
---         '')
-
--- INSERT INTO nokeep (nokeep_id, likeorhate)
--- VALUES  ('',
---         '',
---         '',
---         '',
---         '',
---         '')

@@ -1,23 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    NavbarText, 
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
     Button, 
-    Carousel, 
-    CarouselItem, 
-    CarouselControl, 
-    CarouselIndicators, 
-    CarouselCaption,
-    Container,
     Form,
     FormGroup,
     Label,
@@ -25,21 +9,12 @@ import { Collapse,
     Row,
     Col
   } from "reactstrap";
-// import Button from 'react-bootstrap/Button';
-// import Form from 'react-bootstrap/Form';
-// import InputGroup from 'react-bootstrap/InputGroup';
-import { render } from "react-dom";
 
 function AddToDatabaseForm({videos, source, video_eval, videoid, title, noLikeVideo, onevideoview, dislikeIds}) {
-  const [Change, setChange] = useState();
-  console.log(source + "add to database")
-  const history = useNavigate();
-  const initialState = {likeorhate: "", watchit: "", category: "", time: 0, notes: "", link: onevideoview.link, supplies: "", videoid: onevideoview.videoid, title: onevideoview.title, username: onevideoview.username };
-  const [formData, setFormData] = useState(initialState);
-  const [formErrors, setFormErrors] = useState([]);
-  const [link, setLink] = useState();
-    
-   
+    const history = useNavigate();
+    const initialState = {likeorhate: "", watchit: "", category: "", time: 0, notes: "", link: onevideoview.link, supplies: "", videoid: onevideoview.videoid, title: onevideoview.title, username: onevideoview.username };
+    const [formData, setFormData] = useState(initialState);
+    const [formErrors, setFormErrors] = useState([]);
 
     const handleRadio = (evt) => {
         const {name, id} = evt.target;
@@ -56,8 +31,6 @@ function AddToDatabaseForm({videos, source, video_eval, videoid, title, noLikeVi
             [name]: numValue
         }));
     }
-
-
     const handleChange = (evt) => {
         const {name, value} = evt.target;
         setFormData(formData=>({
@@ -65,46 +38,37 @@ function AddToDatabaseForm({videos, source, video_eval, videoid, title, noLikeVi
             [name]:value
         }));
     }
-
     const handleSubmit = async (evt) => {
         evt.preventDefault();
-        console.log(formData, "formdata in handleSubmit")
-        // console.log(dislikeIds, "dislikeIds")
         let res = await video_eval(formData);
-        if(res.success){
-            console.log("Change: it worked at AddToDatabaseForm/handlesubmit.")
-            history('/newsearch')
-        }else(
-            setFormErrors(res.errors)
-        )
+        history('/newsearch')
     }
 
     return(
-        <div>
-            <Col sm={{size: 10}}>
-            <Form onSubmit={handleSubmit}>
-                <FormGroup>
-                    <Row sm={{size: 4}}>
-                       <p></p>
-                    </Row>
-                <Row>
-                    <Col sm={{size: 4}}>
-                    <p>Watched it? </p>
-                    </Col>
-                    <Col sm={{size: 3 }}>
-                <FormGroup>
-                    <Input
-                        type="radio"
-                        name="watchit"
-                        id="yes"
-                        value="yes-1"
-                        onChange={handleRadio}
-                    />
-                    <Label check htmlFor="likeorhate">Yes.</Label>
-                </FormGroup>
+            <div>
+                <Col sm={{size: 10}}>
+                    <Form onSubmit={handleSubmit}>
+                        <FormGroup>
+                            <Row sm={{size: 4}}>
+                            <p></p>
+                            </Row>
+                            <Row>
+                                <Col sm={{size: 4}}>
+                                <p>Watched it? </p>
+                                </Col>
+                                <Col sm={{size: 3 }}>
+                            <FormGroup>
+                            <Input
+                                type="radio"
+                                name="watchit"
+                                id="yes"
+                                value="yes-1"
+                                onChange={handleRadio}
+                            />
+                            <Label check htmlFor="likeorhate">Yes.</Label>
+                        </FormGroup>
                 </Col>
-                
-              <Col>
+                <Col>
                     <Input
                         type="radio"
                         name="watchit"
@@ -163,39 +127,6 @@ function AddToDatabaseForm({videos, source, video_eval, videoid, title, noLikeVi
             </Col>
         </div>
     )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 export default AddToDatabaseForm;

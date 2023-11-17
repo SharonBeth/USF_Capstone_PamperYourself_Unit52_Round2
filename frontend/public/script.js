@@ -6,5 +6,4 @@ async function init() {
   await gapi.client.init({
     discoveryDocs: ['https://discovery.googleapis.com/$discovery/rest']
   });
-//   start();
 }

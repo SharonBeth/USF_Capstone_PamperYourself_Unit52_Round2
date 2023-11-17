@@ -21,7 +21,7 @@ if(process.env.NODE_ENV === "development") {
 
 db.connect();
 
-// Confirmation connected to database with  when starting up ServiceWorkerRegistration.
+// Confirmation connected to database with when starting up backend server.
 
 db.query(`Select * FROM users`, (err, res) => {
     if (!err) {

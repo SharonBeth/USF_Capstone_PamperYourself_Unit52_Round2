@@ -2,13 +2,12 @@ import axios from "axios";
 
 const BACKEND_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
-// Calling to the backend, that will then in turn call to the Database.
+//Calling the backend.
 
 class DBapi {
     static token;
 
     static async request(endpoint, data = {}, method = "get") {
-        console.debug("DB api:", endpoint, data, method);
 
         const url = `${BACKEND_URL}/${endpoint}`;
         const header = {Authorization: `Bearer ${DBapi.token}`};
@@ -33,12 +32,12 @@ class DBapi {
         console.log(data.username)
         let res = await this.request(`auth/token`, data, "post")
         return res.token;
-      }
+    }
 
     static async getUser(username){
         let res = await this.request(`users/${username}`, {}, "get")
         return res.user;
-      }
+    }
 
     static async video_evalProfile(data){
         let res = await this.request("videos/", data, "post");
@@ -67,14 +66,13 @@ class DBapi {
     }
 
     static async filterHistoryLinks (data){
-        console.log(data, "DBapi, 1st Line in to check data")
         let res = await this.request("videos/historypullfiltered", data, "post");
-        console.log(res, "dbapi @ filterHistoryLinks, res")
-        console.log(res.pull, "dbapi @ filterHistoryLinks, res.pull")
         return res.pull;
     }
 }
+
 DBapi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
     "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
     "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+
 export default DBapi;

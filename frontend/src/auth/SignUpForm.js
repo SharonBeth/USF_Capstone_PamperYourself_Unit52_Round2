@@ -1,10 +1,6 @@
 import React, {useState} from "react";
 import {Redirect, useNavigate} from "react-router-dom";
 import {
-    Card,
-    CardBody,
-    CardTitle,
-    CardText,
     Form,
     FormGroup,
     Label,
@@ -13,7 +9,6 @@ import {
     Col,
     Row 
   } from "reactstrap";
-
 
 function SignUpForm({register}){
     const history = useNavigate();
@@ -42,10 +37,7 @@ function SignUpForm({register}){
     return (
         <div>
             <h1>Sign Up to Pamper Yourself</h1>
-            <Col sm={{
-                            size: 4,
-                            offset: 4
-                        }}>
+            <Col sm={{size: 4, offset: 4}}>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="username"></Label>
@@ -57,8 +49,6 @@ function SignUpForm({register}){
                         value={formData.username}
                         placeholder="Username"
                     />
-               
-              
                     <Label htmlFor="password"></Label>
                     <Input
                         type="password"
@@ -68,7 +58,6 @@ function SignUpForm({register}){
                         value={formData.password}
                         placeholder="Password"
                     />
-                
                     <Label htmlFor="firstName"></Label>
                     <Input
                         type="text"
