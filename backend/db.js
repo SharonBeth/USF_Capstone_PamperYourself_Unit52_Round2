@@ -21,15 +21,4 @@ if(process.env.NODE_ENV === "development") {
 
 db.connect();
 
-// Confirmation connected to database with when starting up backend server.
-
-db.query(`Select * FROM users`, (err, res) => {
-    if (!err) {
-        console.log(res.rows);
-    } else {
-        console.log(err.message);
-    }
-    db.end;
-  });
-
 module.exports = db;
